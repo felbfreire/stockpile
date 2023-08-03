@@ -12,11 +12,14 @@ def main():
             print('%s: %s' % (key, data_dic[key]))
 
     if argv[1] == 'write_data':
+        argv_starts_at = 2
         new_data = dict()
         json_data = read_data(JSON_FILE_PATH)
 
-        key, value = argv[2].split('=')
-        new_data[key] = value
-        json_data.update(new_data)
+        for string_index in range(argv_starts_at, len(argv)):
+            key, value = argv[string_index].split('=')
+            new_data[key] = value
+            json_data.update(new_data)
 
-        write_data(json_data, JSON_FILE_PATH)
+            write_data(json_data, JSON_FILE_PATH)
+
