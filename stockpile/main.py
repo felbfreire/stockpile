@@ -23,3 +23,19 @@ def main():
 
             write_data(json_data, JSON_FILE_PATH)
 
+    if argv[1] == 'write_object':
+        argv_starts_at = 2
+        object_key = None
+        json_object = dict()
+        json_data = read_data(JSON_FILE_PATH)
+
+        for string_index in range(argv_starts_at, len(argv)):
+            if string_index == 2:
+                object_key = argv[string_index]
+            else:
+                 key, value = argv[string_index].split('=')
+                json_object.update({key: value})
+
+        json_data[object_key] = json_object
+        write_data(json_data, JSON_FILE_PATH)
+
