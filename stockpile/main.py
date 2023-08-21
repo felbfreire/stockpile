@@ -40,5 +40,5 @@ def main():
         write_data(json_data, JSON_FILE_PATH)
 
     if argv[1] == 'erase_data':
-        write_data('{}', json_file_path)
+        write_data({}, JSON_FILE_PATH)
 
