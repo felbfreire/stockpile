@@ -18,3 +18,13 @@ class TestCli:
         
         assert data == {"test_key": {"foo": "bar"}}
 
+    def test_write_data_writes_on_file(self):
+        cli_command = 'write_data a=1 b=2'
+
+        os.system(ERASE_DATA_COMMAND)
+        os.system(("python stockpile {}".format(cli_command)))
+
+        data = read_data(JSON_FILE_PATH)
+
+        assert data == {"a": "1", "b": "2"}
+
