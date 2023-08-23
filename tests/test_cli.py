@@ -28,3 +28,15 @@ class TestCli:
 
         assert data == {"a": "1", "b": "2"}
 
+    def test_update_object_updates_object(self):
+        insert_object_command = 'python stockpile write_object test_object inner_key=test_value'
+        update_object_command = 'python stockpile update_object test_object inner_key=TestValue'
+
+        os.system(ERASE_DATA_COMMAND)
+        os.system(insert_object_command)
+        os.system(update_object_command)
+
+        data = read_data(JSON_FILE_PATH)
+
+        assert data == {'test_object': {'inner_key': 'TestValue'}}
+
