@@ -42,3 +42,14 @@ def main():
     if argv[1] == 'erase_data':
         write_data({}, JSON_FILE_PATH)
 
+    if argv[1] == 'update_object':
+        json_data = read_data(JSON_FILE_PATH)
+        
+        for key in json_data:
+            if key == argv[2]:
+                spl = argv[3].split('=')
+                json_data[key][spl[0]] = spl[1]
+                write_data(json_data, JSON_FILE_PATH)
+
+                break
+
