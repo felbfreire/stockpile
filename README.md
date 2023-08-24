@@ -13,9 +13,7 @@ $ python stockpile write_data foo=bar
 
 ```bash
 $ python stockpile read_data
-```
 
-```bash
   foo: bar
 ```
 
@@ -30,10 +28,10 @@ $ python stockpile read_data
   a_key : {'foo': 'bar'}
 ```
 
-<h2>Update anything ..</h2>
+<h2>Update any object with update_object</h2>
 
 ```bash
-$ python stockpile write_object a_key foo=BEER
+$ python stockpile update_object a_key foo=BEER
 
 $ python stockpile read_data
 
